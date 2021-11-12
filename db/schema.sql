@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS rvng_db;
+
+CREATE DATABASE rvng_db;
