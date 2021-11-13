@@ -39,7 +39,6 @@ RV.init(
     length: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        validate
     },
     location: {
         type: DataTypes.STRING,
@@ -52,7 +51,7 @@ RV.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'rv'
+    modelName: 'RV'
   }
 );
 
