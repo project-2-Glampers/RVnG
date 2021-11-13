@@ -36,10 +36,6 @@ const sequelize = require('./config/connection');
 //   console.log('App listening on PORT ' + PORT);
 // });
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
-
 const routes = require('./routes');
 
 const app = express();
