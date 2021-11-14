@@ -1,12 +1,10 @@
-const { application } = require('express');
-const sequelize = require('../config/connection');
+const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 
 
-app.get('/', (req,res) => {
-  console.log('hello world');
-  res.render('index', data);
-  
+router.get('/',  (req,res) => {
+
+  res.render('index')
 }
 );
 

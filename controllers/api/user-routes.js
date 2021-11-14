@@ -3,7 +3,7 @@ const { User } = require('../../models');
 
 
 
-// GET /api/users
+// GET /api/users this route is not needed. you never want to show your users info. 
 router.get('/', (req, res) => {
   // Access our User model and run .findAll() method)
   User.findAll({
@@ -44,7 +44,15 @@ router.post('/', (req, res) => {
     email: req.body.email,
     password: req.body.password
   })
-    .then(dbUserData => res.json(dbUserData))
+    .then(dbUserData => {
+      //this saves the user info in the session on your browser. also run this same function after you log in
+      req.session.save(()=>{
+        req.session.userId = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true
+      })
+      res.json(dbUserData)
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
