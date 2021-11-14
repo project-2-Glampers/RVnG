@@ -21,7 +21,7 @@ app.use(routes);
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening ' + PORT));
 });
 
 
@@ -29,4 +29,5 @@ sequelize.sync({ force: false }).then(() => {
 // npm install --save  
 // npm dotenv --save
 // npm install express sequelize mysql2 --save
-// npm install bcrypt --save
+// npm install express-handlebars
+// npm install bcrypt
