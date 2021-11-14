@@ -41,9 +41,12 @@ RV.init(
         allowNull: false,
     },
     city_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        unique: true,
+        references: {
+          model: "city",
+          key: "id",
+        }
       }
   },
   {
