@@ -1,4 +1,5 @@
-const { Rental } = require('../models');
+const sequelize = require('../config/connection');
+const { RV } = require('../models');
 
 const rentalData = [
     {
@@ -148,6 +149,8 @@ const rentalData = [
         length: 35,
         location: 'Austin'
     },
-
-    
 ]
+
+const seedRVs = () => RV.bulkCreate(rentalData);
+
+module.exports = seedRVs;
