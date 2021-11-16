@@ -40,7 +40,7 @@ RV.init(
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    location: {
+    city_id: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
