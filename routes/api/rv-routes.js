@@ -60,28 +60,28 @@ router.get('/:id', (req, res) => {
 //     });
 // });
 
-// // PUT /api/users/1
-// router.put('/:id', (req, res) => {
-//   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+// PUT /api/users/1
+router.put('/:id', (req, res) => {
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
-//   // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
-//   RV.update(req.body, {
-//     where: {
-//       id: req.params.id
-//     }
-//   })
-//     .then(dbRVData => {
-//       if (!dbRVData[0]) {
-//         res.status(404).json({ message: 'No rv found with this id' });
-//         return;
-//       }
-//       res.json(dbRVData);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       res.status(500).json(err);
-//     });
-// });
+  // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
+  RV.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbRVData => {
+      if (!dbRVData[0]) {
+        res.status(404).json({ message: 'No rv found with this id' });
+        return;
+      }
+      res.json(dbRVData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // // DELETE /api/users/1
 // router.delete('/:id', (req, res) => {

@@ -8,6 +8,7 @@ const rvRoutes = require('./rv-routes');
 router.use('/', cityRoutes);
 router.use('/users', userRoutes);
 router.use('/rv', rvRoutes);
+router.use('/city', cityRoutes);
 //router.use('/restaurants', )
 
 
