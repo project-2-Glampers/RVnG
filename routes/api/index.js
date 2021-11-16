@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const cityRoutes = require('./city-api-routes');
+const cityRoutes = require('./city-routes');
 const userRoutes = require('./user-routes.js');
 const rvRoutes = require('./rv-routes');
 //const restRoutes = require('./')
