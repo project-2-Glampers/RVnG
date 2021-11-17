@@ -1,9 +1,5 @@
 const router = require('express').Router();
-<<<<<<< HEAD:controllers/api/city-routes.js
-const { City } = require('../../models');
-=======
 const { RV, User, City } = require('../../models');
->>>>>>> 7170098ce45242e2da0d03ed90ccc862a45a96c5:routes/api/rv-routes.js
 
 
 
@@ -11,22 +7,12 @@ const { RV, User, City } = require('../../models');
 
 router.get('/', (req, res) => {
   // Access our User model and run .findAll() method)
-<<<<<<< HEAD:controllers/api/city-routes.js
   City.findAll({
     include: {
         model: City,
         attributes: ['id', 'name', 'state', 'country']
-=======
-  RV.findAll({
-    include: [{
-        model: User,
-        attributes: ['id', 'username', 'email', 'password']
-    },{
-        model: City,
-        attributes: ['id', 'name', 'state']
->>>>>>> 7170098ce45242e2da0d03ed90ccc862a45a96c5:routes/api/rv-routes.js
     }
-  ]
+  
   })
     .then(dbCityData => res.json(dbCityData))
     .catch(err => {
@@ -41,21 +27,10 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-<<<<<<< HEAD:controllers/api/city-routes.js
     include: {
         model: City,
         attributes: ['id', 'name', 'state', 'country']
     }
-=======
-    include: [{
-      model: User,
-      attributes: ['id', 'username', 'email', 'password']
-  },{
-    model: City,
-    attributes: ['id', 'name', 'state']
-  }
-]
->>>>>>> 7170098ce45242e2da0d03ed90ccc862a45a96c5:routes/api/rv-routes.js
   })
     .then(dbCityData => {
       if (!dbCityData) {

@@ -6,7 +6,6 @@ const exphbs = require('express-handlebars');
 // Requires the 'express-session' module
 const session = require(`express-session`);
 const sequelize = require('./config/connection');
-<<<<<<< HEAD
 const hbs = exphbs.create({});
 const routes = require('./controllers');
 const app = express();
@@ -20,43 +19,15 @@ app.use(require('./controllers/api'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-=======
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const routes = require('./controllers')
-// Sets up the Express App
-// =============================================================
-const app = express();
-
-const hbs = exphbs.create({});
-// const session = require('express-session');
-const PORT = process.env.PORT || 3001;
->>>>>>> b0034b21f450dbdefc595dc58928c71ba57fff39
 
 // Sets up the sessions with the 'secret', 'resave', 'saveUninitialized' options
 const sess = {
     secret: 'This is a major secret!',
     cookie: {},
     resave: false,
-<<<<<<< HEAD
-    saveUninitialized: false
-  })
-);
-
-// app.use(require('./routes/api/'));
-
-
-// Starts the server to begin listening
-// =============================================================
-// app.listen(PORT, () => {
-//   console.log('App listening on PORT ' + PORT);
-// });
-
-// const routes = require('./routes');
-=======
     saveUninitialized: false, 
     store: new SequelizeStore({db: sequelize})
   }
->>>>>>> b0034b21f450dbdefc595dc58928c71ba57fff39
 
 app.use(session(sess));
 // Sets Handlebars as the default template engine
