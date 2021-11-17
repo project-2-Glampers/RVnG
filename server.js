@@ -1,51 +1,52 @@
 // Dependencies
 // =============================================================
+const path =  require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
 // Requires the 'express-session' module
 const session = require(`express-session`);
 const sequelize = require('./config/connection');
-const hbs = exphbs.create({});
-const routes = require('./routes');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const routes = require('./controllers')
+// Sets up the Express App
+// =============================================================
 const app = express();
+
+const hbs = exphbs.create({});
+// const session = require('express-session');
 const PORT = process.env.PORT || 3001;
 
+// Sets up the sessions with the 'secret', 'resave', 'saveUninitialized' options
+const sess = {
+    secret: 'This is a major secret!',
+    cookie: {},
+    resave: false,
+    saveUninitialized: false, 
+    store: new SequelizeStore({db: sequelize})
+  }
+
+app.use(session(sess));
 // Sets Handlebars as the default template engine
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-app.use(require('./routes/api/'));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Sets up the sessions with the 'secret', 'resave', 'saveUninitialized' options
-
-
-// app.use(require('./routes/api/'));
-
-
-// Starts the server to begin listening
-// =============================================================
-// app.listen(PORT, () => {
-//   console.log('App listening on PORT ' + PORT);
-// });
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+// const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-const sess = {
-  secret: 'Super secret secret',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
-};
+// const sess = {
+//   secret: 'Super secret secret',
+//   cookie: {},
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new SequelizeStore({
+//     db: sequelize
+//   })
+// };
 
 app.use(session(sess));
 

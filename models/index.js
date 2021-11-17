@@ -6,7 +6,7 @@ const Restaurant = require("./restaurant");
 
 
 RV.belongsTo(User, {
-  foreignKey: "user_id",
+  foreignKey: "userId",
 });
 
 RV.belongsTo(City, {
