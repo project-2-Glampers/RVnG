@@ -8,11 +8,14 @@ RV.init(
   {
     // define an id column
     id: {
-      
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
+    },
+    rental_name: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     user_id: {
         type: DataTypes.INTEGER,
@@ -40,10 +43,13 @@ RV.init(
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    location: {
-        type: DataTypes.STRING,
+    city_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        unique: true,
+        references: {
+          model: "city",
+          key: "id",
+        }
       }
   },
   {

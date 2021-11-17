@@ -4,7 +4,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +23,18 @@
     "connect-session-sequelize": "^7.1.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+<<<<<<< HEAD
     "express-handlebars": "^6.0.0",
     "express-session": "^1.17.2",
+=======
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.17.2",
+    "faker": "^5.5.3",
+    "handlebars": "^4.7.7",
+    "mysql": "^2.18.1",
+>>>>>>> 67022f29d2679e8ef5eb35b01d05ce1781027c02
     "mysql2": "^2.3.3-rc.0",
+    "node-fetch": "^3.1.0",
     "sequelize": "^6.9.0"
   },
   "description": ""

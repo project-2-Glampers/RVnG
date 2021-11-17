@@ -1,3 +1,4 @@
+<<<<<<< HEAD:controllers/home-routes.js
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 
@@ -5,6 +6,18 @@ const { Post, User, Comment } = require('../models');
 router.get('/',  (req,res) => {
 
   res.render('index')
+=======
+const { application } = require('express');
+const router = require('express').Router();
+const sequelize = require('../config/connection');
+
+
+
+router.get('/', (req,res) => {
+  console.log('hello world');
+  res.render('index', data);
+  
+>>>>>>> 67022f29d2679e8ef5eb35b01d05ce1781027c02:routes/home-routes.js
 }
 );
 
