@@ -3,7 +3,7 @@ const { User } = require('../../models');
 
 
 
-// GET /api/users
+// GET /api/users this route is not needed. you never want to show your users info. 
 router.get('/', (req, res) => {
   // Access our User model and run .findAll() method)
   User.findAll({
