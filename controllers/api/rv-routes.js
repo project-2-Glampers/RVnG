@@ -12,10 +12,10 @@ const { RV, User } = require('../../models');
 router.get('/', (req, res) => {
   // Access our User model and run .findAll() method)
   RV.findAll({
-    include: {
-        model: User,
-        attributes: ['id', 'username', 'email', 'password']
-    }
+    // include: {
+    //     model: User,
+    //     attributes: ['id', 'username', 'email', 'password']
+    // }
   })
     .then(dbRVData => res.json(dbRVData))
     .catch(err => {
@@ -34,14 +34,14 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    include: {
-        model: User,
-        attributes: ['id', 'username', 'email', 'password']
-    }
+    // include: {
+    //     model: User,
+    //     attributes: ['id', 'username', 'email', 'password']
+    // }
   })
     .then(dbRVData => {
       if (!dbRVData) {
-        res.status(404).json({ message: 'No user found with this id' });
+        res.status(404).json({ message: 'No rv found with this id' });
         return;
       }
       res.json(dbRVData);
