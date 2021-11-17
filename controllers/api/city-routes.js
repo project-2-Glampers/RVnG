@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Cities } = require('../../models');
+const { City } = require('../../models');
 
 
 
@@ -7,9 +7,9 @@ const { Cities } = require('../../models');
 
 router.get('/', (req, res) => {
   // Access our User model and run .findAll() method)
-  Cities.findAll({
+  City.findAll({
     include: {
-        model: Cities,
+        model: City,
         attributes: ['id', 'name', 'state', 'country']
     }
   })

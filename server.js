@@ -6,15 +6,15 @@ const exphbs = require('express-handlebars');
 const session = require(`express-session`);
 const sequelize = require('./config/connection');
 const hbs = exphbs.create({});
-const routes = require('./routes');
+const routes = require('./controllers');
 const app = express();
-const session = require('express-session');
+
 const PORT = process.env.PORT || 3001;
 
 // Sets Handlebars as the default template engine
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-app.use(require('./routes/api/'));
+app.use(require('./controllers/api'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -37,7 +37,7 @@ app.use(
 //   console.log('App listening on PORT ' + PORT);
 // });
 
-const routes = require('./routes');
+// const routes = require('./routes');
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
