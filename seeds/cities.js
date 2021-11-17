@@ -1,5 +1,5 @@
 const sequelize = require("../config/connection");
-const { Cities } = require("../models");
+const { City } = require("../models");
 
 const cityData = [
   {
@@ -91,9 +91,9 @@ const cityData = [
     name: "San Diego",
     state: "California",
     country: "USA",
-  },
+  }
 ];
 
-const cityseeds = () => Cities.bulkCreate(cityData);
+const cityseeds = () => City.bulkCreate(cityData);
 
 module.exports = cityseeds;

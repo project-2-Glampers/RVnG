@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         attributes: ['id', 'name', 'state', 'country']
     }
   })
-    .then(dbRVData => res.json(dbRVData))
+    .then(dbCityData => res.json(dbCityData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -22,21 +22,21 @@ router.get('/', (req, res) => {
 
 // GET /api/rv/1
 router.get('/:id', (req, res) => {
-  RV.findOne({
+  City.findOne({
     where: {
       id: req.params.id
     },
     include: {
-        model: User,
-        attributes: ['id', 'username', 'email', 'password']
+        model: City,
+        attributes: ['id', 'name', 'state', 'country']
     }
   })
-    .then(dbRVData => {
-      if (!dbRVData) {
-        res.status(404).json({ message: 'No user found with this id' });
+    .then(dbCityData => {
+      if (!dbCityData) {
+        res.status(404).json({ message: 'No city found with this id' });
         return;
       }
-      res.json(dbRVData);
+      res.json(dbCityData);
     })
     .catch(err => {
       console.log(err);
@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
 //     length: req.body.length,
 //     location: req.body.location
 //   })
-//     .then(dbRVData => res.json(dbRVData))
+//     .then(dbCityData=> res.json(dbCityData))
 //     .catch(err => {
 //       console.log(err);
 //       res.status(500).json(err);
@@ -65,17 +65,17 @@ router.put('/:id', (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
   // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
-  RV.update(req.body, {
+  City.update(req.body, {
     where: {
       id: req.params.id
     }
   })
-    .then(dbRVData => {
-      if (!dbRVData[0]) {
-        res.status(404).json({ message: 'No rv found with this id' });
+    .then(dbCityData=> {
+      if (!dbCityData[0]) {
+        res.status(404).json({ message: 'No City found with this id' });
         return;
       }
-      res.json(dbRVData);
+      res.json(dbCityData);
     })
     .catch(err => {
       console.log(err);
@@ -90,12 +90,12 @@ router.put('/:id', (req, res) => {
 //       id: req.params.id
 //     }
 //   })
-//     .then(dbRVData => {
-//       if (!dbRVData) {
+//     .then(dbCityData=> {
+//       if (!dbCityData) {
 //         res.status(404).json({ message: 'No rv found with this id' });
 //         return;
 //       }
-//       res.json(dbRVData);
+//       res.json(dbCityData);
 //     })
 //     .catch(err => {
 //       console.log(err);
