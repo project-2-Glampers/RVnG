@@ -5,13 +5,25 @@ const Event = require("./event");
 const Restaurant = require("./restaurant");
 
 
-RV.belongsTo(User, {
-  foreignKey: "userId",
-});
+// RV.belongsTo(User, {
+//   foreignKey: "user_id",
+//   onDelete: 'CASCADE'
+// });
+
+// User.hasOne(RV, {
+//   foreignKey: "user_id"
+// })
 
 RV.belongsTo(City, {
   foreignKey: "city_id",
+  onDelete: 'CASCADE'
 });
+
+City.hasOne(RV, {
+  foreignKey: "city_id"
+});
+
+
 
 
 

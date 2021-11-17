@@ -3,7 +3,7 @@ const { RV } = require('../models');
 
 const rentalData = [
     {
-        id: 1,
+        // id: 1,
         rental_name: 'Jonathan Trailer Thomas',
         model: '2021 Trailer',
         price: 162,

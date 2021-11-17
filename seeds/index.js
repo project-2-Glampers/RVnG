@@ -5,10 +5,11 @@ const seedCities = require('./city')
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log('\n----- DATABASE SYNCED -----\n');
-  await seedRVs();
-  console.log('\n----- RVs SEEDED -----\n');
   await seedCities();
   console.log('\n----- City SEEDED -----\n');
+  await seedRVs();
+  console.log('\n----- RVs SEEDED -----\n');
+  
   process.exit(0);
 };
 
