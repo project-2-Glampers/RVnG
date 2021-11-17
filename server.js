@@ -8,7 +8,6 @@ const sequelize = require('./config/connection');
 const hbs = exphbs.create({});
 const routes = require('./routes');
 const app = express();
-const session = require('express-session');
 const PORT = process.env.PORT || 3001;
 
 // Sets Handlebars as the default template engine
@@ -20,13 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Sets up the sessions with the 'secret', 'resave', 'saveUninitialized' options
-app.use(
-  session({
-    secret: 'This is a major secret!',
-    resave: false,
-    saveUninitialized: false
-  })
-);
+
 
 // app.use(require('./routes/api/'));
 
@@ -37,15 +30,10 @@ app.use(
 //   console.log('App listening on PORT ' + PORT);
 // });
 
-const routes = require('./routes');
+
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -65,7 +53,7 @@ app.use(session(sess));
 app.use(routes);
 
 // turn on connection to db and server
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log('Now listening ' + PORT));
 });
 
