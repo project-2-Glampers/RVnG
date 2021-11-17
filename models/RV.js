@@ -17,13 +17,13 @@ RV.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id'
-        }
-      },
+    // user_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: 'user',
+    //       key: 'id'
+    //     }
+    //   },
     model: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -45,7 +45,6 @@ RV.init(
     },
     city_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         references: {
           model: "city",
           key: "id",

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { RV, User } = require('../../models');
+const { RV, User, City } = require('../../models');
 
 
 
@@ -8,10 +8,14 @@ const { RV, User } = require('../../models');
 router.get('/', (req, res) => {
   // Access our User model and run .findAll() method)
   RV.findAll({
-    include: {
+    include: [{
         model: User,
         attributes: ['id', 'username', 'email', 'password']
+    },{
+        model: City,
+        attributes: ['id', 'name', 'state']
     }
+  ]
   })
     .then(dbRVData => res.json(dbRVData))
     .catch(err => {
@@ -26,10 +30,14 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    include: {
-        model: User,
-        attributes: ['id', 'username', 'email', 'password']
-    }
+    include: [{
+      model: User,
+      attributes: ['id', 'username', 'email', 'password']
+  },{
+    model: City,
+    attributes: ['id', 'name', 'state']
+  }
+]
   })
     .then(dbRVData => {
       if (!dbRVData) {
