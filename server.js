@@ -6,31 +6,26 @@ const exphbs = require('express-handlebars');
 // Requires the 'express-session' module
 const session = require(`express-session`);
 const sequelize = require('./config/connection');
-const hbs = exphbs.create({});
+
 const routes = require('./controllers');
 const app = express();
 
 const PORT = process.env.PORT || 3001;
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// Sets Handlebars as the default template engine
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-app.use(require('./controllers/api'));
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Sets up the sessions with the 'secret', 'resave', 'saveUninitialized' options
 const sess = {
-    secret: 'This is a major secret!',
-    cookie: {},
-    resave: false,
-    saveUninitialized: false, 
-    store: new SequelizeStore({db: sequelize})
-  }
+  secret: 'This is a major secret!',
+  cookie: {},
+  resave: false,
+  saveUninitialized: false, 
+  store: new SequelizeStore({db: sequelize})
+}
 
 app.use(session(sess));
+
 // Sets Handlebars as the default template engine
+const hbs = exphbs.create({});
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -39,8 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-// const SequelizeStore = require('connect-session-sequelize')(session.Store);
+app.use(routes);
 
 // const sess = {
 //   secret: 'Super secret secret',
@@ -52,10 +46,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   })
 // };
 
-app.use(session(sess));
-
 // turn on routes
-app.use(routes);
+
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {

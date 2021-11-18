@@ -5,7 +5,7 @@ const rvRoutes = require('./rv-routes');
 //const restRoutes = require('./')
 
 
-router.use('/', cityRoutes);
+router.use('/city', cityRoutes);
 router.use('/users', userRoutes);
 router.use('/rv', rvRoutes);
 
