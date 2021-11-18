@@ -1,6 +1,6 @@
 const City = require("./city");
-const User = require("./user");
-const RV = require("./rv");
+const User = require("./User");
+const RV = require("./RV");
 const Event = require("./event");
 const Restaurant = require("./restaurant");
 
