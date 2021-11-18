@@ -1,29 +1,23 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models');
+const sequelize = require('../config/connection');
+const { RV, User, City } = require('../models');
 
 
 
 
 router.get('/', (req, res) => {
-  RV.findAll({
-    attributes: [
-      'id',
-      'rental_name',
-      'model',
-      'price',
-      'length',
-      'city_id',
-     // [sequelize.literal('(SELECT COUNT(*) FROM rv WHERE post.id = vote.post_id)'), 'vote_count']
-    ],
-  })
-    .then(dbRVData => {
-      // pass a single post object into the homepage template
-      res.render('homepage', dbRVData[0]);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  res.render('index')
+
+});
+
+router.get('/login', (req, res) => {
+  
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('index');
 });
 
 module.exports = router;

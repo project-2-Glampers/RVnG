@@ -1,6 +1,6 @@
 const sequelize = require('../config/connection');
 const seedRVs = require('./rentals');
-const seedCities = require('./city')
+const seedCities = require('./cities')
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });

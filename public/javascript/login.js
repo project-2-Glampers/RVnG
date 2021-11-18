@@ -27,6 +27,7 @@ async function signupFormHandler(event) {
 
 async function loginFormHandler(event) {
   event.preventDefault();
+  console.log("hello world")
 
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
@@ -42,13 +43,25 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      
+      document.querySelector('.form-hide').style.display = 'none';
     } else {
       alert(response.statusText);
     }
   }
 }
-  
-  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
-  document.getElementById(".signup-form").addEventListener("submit", signupFormHandler);
+async function loginHide (event) {
+  event.preventDefault();
+
+  document.querySelector('.form-hide').style.display = 'none';
+    
+}
+
+
+
+  
+  document.querySelector('.login-form').addEventListener('click', loginFormHandler);
+  // document.querySelector('.login-form').addEventListener('click', loginHide);
+
+  //document.getElementById(".signup-form").addEventListener("submit", signupFormHandler);
