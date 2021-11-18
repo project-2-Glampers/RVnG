@@ -8,10 +8,10 @@ const { RV, User, City } = require('../../models');
 router.get('/', (req, res) => {
   // Access our User model and run .findAll() method)
   City.findAll({
-    include: {
-        model: City,
-        attributes: ['id', 'name', 'state', 'country']
-    }
+    // include: {
+    //     model: City,
+    //     attributes: ['id', 'name', 'state', 'country']
+    // }
   
   })
     .then(dbCityData => res.json(dbCityData))
@@ -27,10 +27,10 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    include: {
-        model: City,
-        attributes: ['id', 'name', 'state', 'country']
-    }
+    // include: {
+    //     model: City,
+    //     attributes: ['id', 'name', 'state', 'country']
+    // }
   })
     .then(dbCityData => {
       if (!dbCityData) {
