@@ -43,13 +43,25 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      
+      document.querySelector('.form-hide').style.display = 'none';
     } else {
       alert(response.statusText);
     }
   }
 }
+
+async function loginHide (event) {
+  event.preventDefault();
+
+  document.querySelector('.form-hide').style.display = 'none';
+    
+}
+
+
+
   
   document.querySelector('.login-form').addEventListener('click', loginFormHandler);
+  // document.querySelector('.login-form').addEventListener('click', loginHide);
 
   //document.getElementById(".signup-form").addEventListener("submit", signupFormHandler);
