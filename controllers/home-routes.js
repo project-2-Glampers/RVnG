@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { RV, User, City } = require('../models');
 
 
@@ -10,12 +11,13 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+  
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
 
-  res.render('login');
+  res.render('index');
 });
 
 module.exports = router;

@@ -27,6 +27,7 @@ async function signupFormHandler(event) {
 
 async function loginFormHandler(event) {
   event.preventDefault();
+  console.log("hello world")
 
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
@@ -49,6 +50,6 @@ async function loginFormHandler(event) {
   }
 }
   
-  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+  document.querySelector('.login-form').addEventListener('click', loginFormHandler);
 
-  document.getElementById(".signup-form").addEventListener("submit", signupFormHandler);
+  //document.getElementById(".signup-form").addEventListener("submit", signupFormHandler);
