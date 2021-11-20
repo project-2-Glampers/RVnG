@@ -1,8 +1,5 @@
 # RVnG
 
-## User Story
-
-
 ## Description
 RVnG is an app designed to allow outdoor explorers to have the same easy experience as the typical traveler without the constrictive options. We have adapted a vacation rental model in which users are able to both list and rent RVs as needed. With RVnG, you are able to search any of our pilot cities in the US, Canada, or Mexico for a perfect RV through a variety of criteria including model name, price, and size. We like to consider ourselves the AirBnB of recreational vehicles. RVnG makes it simple to find your RV and GO!
 </br>
