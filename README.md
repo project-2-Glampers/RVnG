@@ -6,7 +6,7 @@ RVnG is an app designed to allow outdoor explorers to have the same easy experie
 </br>
 Introduction Video:
 </br>
-[![Introduction Video](https://i9.ytimg.com/vi/f52WByw8toM/mq2.jpg?sqp=CPi-5YwG&rs=AOn4CLBin99VO_Js6sPS7beS7UfAR7GmXQ)](https://www.youtube.com/watch?v=f52WByw8toM)
+[![Introduction Video](https://i9.ytimg.com/vi/f52WByw8toM/mq2.jpg?sqp=CJCM64wG&rs=AOn4CLBRcEBtir_6_yANEfLA5msTyBkPZw)](https://www.youtube.com/watch?v=f52WByw8toM)
 
 
 ## Technologies Used
