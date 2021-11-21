@@ -64,4 +64,4 @@ async function loginHide (event) {
   document.querySelector('.login-form').addEventListener('click', loginFormHandler);
   // document.querySelector('.login-form').addEventListener('click', loginHide);
 
-  //document.getElementById(".signup-form").addEventListener("submit", signupFormHandler);
+  document.querySelector('.signup-form').addEventListener('click', signupFormHandler);
