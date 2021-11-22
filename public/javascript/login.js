@@ -45,21 +45,12 @@ async function loginFormHandler(event) {
     if (response.ok) {
       
       document.querySelector('.form-hide').style.display = 'none';
-      document.location.replace('/main');
+      document.location.replace('home');
     } else {
       alert(response.statusText);
     }
   }
 }
-
-async function loginHide (event) {
-  event.preventDefault();
-
-  document.querySelector('.form-hide').style.display = 'none';
-    
-}
-
-
 
   
   document.querySelector('.login-form').addEventListener('click', loginFormHandler);
