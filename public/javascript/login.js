@@ -44,7 +44,6 @@ async function loginFormHandler(event) {
 
     if (response.ok) {
       
-      document.querySelector('.form-hide').style.display = 'none';
       document.location.replace('home');
     } else {
       alert(response.statusText);

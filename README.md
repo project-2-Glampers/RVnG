@@ -42,11 +42,11 @@ Heroku URL: https://glampers-rvng.herokuapp.com/
 
 ## Usage
 Home Page:
-![app home image](/public/assets/images/homepage.jpg)
+![app home image](/public/assets/images/homepage2.jpg)
 </br>
 </br>
 RV Page:
-![app add page](/public/assets/images/rv-page.jpg)
+![app add page](/public/assets/images/rv-page2.jpg)
 
 
 
